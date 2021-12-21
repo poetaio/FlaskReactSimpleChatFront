@@ -1,0 +1,21 @@
+.navbar_list {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color:red;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar_list__link {
+    margin-left: 20px;
+    padding: 0;
+    display: flex;
+    text-decoration: none;
+    color: black;
+}
+
+.test {
+    margin: 0;
+}
