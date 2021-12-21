@@ -1,10 +1,6 @@
 import './App.css';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import { AllChatsPage, HomePage, LoginPage } from '../pages';
-
-require('react-dom');
-window.React2 = require('react');
-console.log(window.React1 === window.React2);
+import { AllChatsPage, ChatPage, HomePage, LoginPage } from '../pages';
 
 function App() {
   return (
@@ -13,6 +9,7 @@ function App() {
             <Route exact path="/" element={<HomePage/>}/>
             <Route exact path="/login" element={<LoginPage/>}/>
             <Route exact path="/chats" element={<AllChatsPage/>}/>
+            <Route path="/chat" element={<ChatPage/>}/>
         </Routes>
     </Router>
   );
