@@ -1,48 +1,65 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./chat.css"
-import { useChat } from "./useChat";
-
+// import { useChat } from "./useChat";
+import io from "socket.io-client"
 
 const Chat = () => {
     const {search} = useLocation();
     const username = new URLSearchParams(search).get('username');
 
-    const [data, setData] = useState([{}]);
+    const [messages, setMessages] = useState(null);
     const [message, setMessage] = useState("");
     let messagesEnd = useRef(null);
-
-    function sendMessage(e) {
-        if (e.key === 'Enter' && message !== "") {
-            fetch(`/api/chat-history?username=${username}&message=${message}`, {method: "POST"});
-            setMessage("");
-            getData(username);
-        }
-    }
 
     async function getData(username) {
         await fetch(`/api/chat-history?username=${username}`).then(
             res => res.json()
         ).then(
-            data => {
-                setData(data);
+            messages => {
+                setMessages(messages.chatHistory);
             }
         );
-        messagesEnd.current.scrollIntoView({ behavior: "smooth" })
-
+        // messagesEnd.current.scrollIntoView({ behavior: "smooth" })
+        messagesEnd.current.scrollIntoView();
     }
 
+    const socketRef = useRef(null);
+
     useEffect(() => {
+        socketRef.current = io("");
+
+        socketRef.current.on("connect", () => {
+            socketRef.current.emit("set_connection", {with: username});
+        });
+
+        socketRef.current.on("messages", (messages) => {
+            setMessages(messages);
+            // messagesEnd.current.scrollIntoView({ behavior: "smooth" });
+            messagesEnd.current.scrollIntoView();
+        });
+
         getData(username);
+        return () => {
+            socketRef.current.emit("client_disconnect");
+            socketRef.current.disconnect();
+        }
     }, [username]);
+
+    function sendMessage(e) {
+        if (e.key === 'Enter' && message !== "") {
+            socketRef.current.emit("message", message);
+            setMessage("");
+        }
+    }
 
     return (
         <ul className="chat_history__list">
-            {(typeof data.chatHistory === 'undefined') ?
+            {(messages === null) ?
             (
                 <p>Loading...</p>
             ) : (
-                (data.chatHistory.map((user_message, i) => {
+                (messages.map((user_message, i) => {
                     let className = user_message[0] === username ? "chat_history__message  chat_history__left" : "chat_history__message  chat_history__right";
                     return (<li key={i} className={className}>{user_message[1]}</li>)
                 }))

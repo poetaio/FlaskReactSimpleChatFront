@@ -41,6 +41,7 @@ class Login extends React.Component {
     }
 
     valuesValid() {
+        // todo: enhance validation
         let res = true;
         if (this.state.username.length === 0) {
             this.setState({

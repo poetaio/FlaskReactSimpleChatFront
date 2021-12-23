@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import io from "socket.io-client";
+import io from "socket.io";
 
 
 export const useChat = () => {
@@ -17,6 +17,10 @@ export const useChat = () => {
             userFrom: "",
             userTo: ""
         });
+
+        return () => {
+            socketRef.current.disconnect();
+        };
     });
 
     socketRef.current.on('messages', (messages) => {
