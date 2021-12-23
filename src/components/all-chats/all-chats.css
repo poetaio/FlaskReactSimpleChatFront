@@ -1,0 +1,29 @@
+.all-chats__list {
+    align-self: flex-start;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.all-chats__list_item {
+    margin-top: 5px;
+    border: solid white 1px;
+    border-radius: 3px;
+    width: 100px;
+    padding: 5px;
+}
+
+.all-chats__list_item:hover {
+    border-color: rgb(170, 170, 170);
+    transition: border-color 0.5s ease;
+    cursor: pointer;
+}
+.all-chats__list_item:hover .all-chats__list-item-link {
+    color: rgb(0, 0, 0);
+
+}
+.all-chats__list-item-link {
+    text-decoration: none;
+    color: rgb(75, 75, 75);
+    font-size: 20px;
+}

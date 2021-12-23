@@ -19,3 +19,8 @@
 .test {
     margin: 0;
 }
+
+.navclass {
+    width: 100%;
+    display: flex;
+}

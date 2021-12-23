@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import "./all-chats.css";
 
 const AllChats = () => {
     const [data, setData] = useState([{}]);
@@ -13,6 +14,7 @@ const AllChats = () => {
             }
         );
     }, []);
+    
 
     return (
         <ul className="all-chats__list">

@@ -1,13 +1,14 @@
 import React from "react";
 import AllChats from "../all-chats";
+import AuthWrapper from "../auth-wrapper/auth-wrapper";
 import NavBar from "../navbar";
 
 function AllChatsPage() {
     return (
-        <div className="main-wrapper">
-            <NavBar active="all_chats"/>
+        <AuthWrapper>
+            <NavBar activeHeader={"Chats"}/>
             <AllChats/>
-        </div>
+        </AuthWrapper>
     );
 }
 

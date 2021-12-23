@@ -1,13 +1,14 @@
 import React from "react";
+import AuthWrapper from "../auth-wrapper/auth-wrapper";
 import Chat from "../chat";
 import NavBar from "../navbar";
 
 function ChatPage() {
     return (
-        <div className="main-wrapper">
+        <AuthWrapper>
             <NavBar/>
             <Chat/>
-        </div>
+        </AuthWrapper>
     )
 }
 

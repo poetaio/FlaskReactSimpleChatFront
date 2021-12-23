@@ -1,13 +1,14 @@
 import React from "react";
+import AuthWrapper from "../auth-wrapper/auth-wrapper";
 import Home from "../home";
 import NavBar from "../navbar";
 
 function HomePage() {
     return (
-        <div className="main-wrapper">
-            <NavBar/>
+        <AuthWrapper>
+            <NavBar activeHeader={"Home"}/>
             <Home/>
-        </div>
+        </AuthWrapper>
     );
 };
 
