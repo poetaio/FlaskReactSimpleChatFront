@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./chat.css"
+import { useChat } from "./useChat";
+
 
 const Chat = () => {
     const {search} = useLocation();
@@ -8,10 +10,7 @@ const Chat = () => {
 
     const [data, setData] = useState([{}]);
     const [message, setMessage] = useState("");
-
-    useEffect(() => {
-        getData(username);
-    }, [username]);
+    let messagesEnd = useRef(null);
 
     function sendMessage(e) {
         if (e.key === 'Enter' && message !== "") {
@@ -21,15 +20,21 @@ const Chat = () => {
         }
     }
 
-    function getData(username) {
-        fetch(`/api/chat-history?username=${username}`).then(
+    async function getData(username) {
+        await fetch(`/api/chat-history?username=${username}`).then(
             res => res.json()
         ).then(
             data => {
                 setData(data);
             }
         );
+        messagesEnd.current.scrollIntoView({ behavior: "smooth" })
+
     }
+
+    useEffect(() => {
+        getData(username);
+    }, [username]);
 
     return (
         <ul className="chat_history__list">
@@ -43,7 +48,10 @@ const Chat = () => {
                 }))
             )
         }
-        <input type="text" value={message} onKeyPress={e => sendMessage(e)} onChange={(e) => setMessage(e.target.value)} className="chat_history__input"/>
+        <input ref={messagesEnd} type="text" value={message} onKeyPress={e => sendMessage(e)} onChange={(e) => setMessage(e.target.value)} className="chat_history__input"/>
+        {/* <input onLoad={(el) => {el.target.scrollIntoView(); messagesEnd=el.target;}} type="text" value={message} onKeyPress={e => sendMessage(e)} onChange={(e) => setMessage(e.target.value)} className="chat_history__input"/> */}
+        {/* <input onLoad={(el) => el.target.scrollIntoView()} ref={(el) => {console.log("ele: " + el);messagesEnd = el; el.scrollIntoView({ behavior: "smooth" });}} type="text" value={message} onKeyPress={e => sendMessage(e)} onChange={(e) => setMessage(e.target.value)} className="chat_history__input"/> */}
+        {/* <input ref={(el) => setMessagesEnd(el)} type="text" value={message} onKeyPress={e => sendMessage(e)} onChange={(e) => setMessage(e.target.value)} className="chat_history__input"/> */}
         </ul>
     );
 }

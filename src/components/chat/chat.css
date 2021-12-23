@@ -9,6 +9,8 @@
     margin-top: 50px;
     padding: 10px;
     width: 60%;
+    overflow-y: auto;
+    height: 250px;
 }
 
 .chat_history__message {
