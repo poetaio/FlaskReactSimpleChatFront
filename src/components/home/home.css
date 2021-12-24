@@ -1,0 +1,9 @@
+.home {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.home__text {
+    margin-top: 25px;
+}

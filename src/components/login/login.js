@@ -3,6 +3,7 @@ import { Navigate } from 'react-router';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./login.css";
 import Loader from "react-loader-spinner";
+import { Link } from "react-router-dom";
 
 class Login extends React.Component {
     constructor(props) {
@@ -100,8 +101,10 @@ class Login extends React.Component {
                     timeout={3000}/>  :
             // <div>
             <form className="login__form" onSubmit={this.handleSubmit}>
-            {this.state.errors.map((error, i) => 
-                <div key={i} className="alert alert-danger" role="alert">{error}</div>)}
+                <h3 className="md-3">Login</h3>
+                {this.state.errors.map((error, i) => 
+                    <div key={i} className="alert alert-danger" role="alert">{error}</div>
+                )}
                 <div className="form-group  col-md-4  login__input">
                     <label className="form-label">
                         Username
@@ -110,14 +113,19 @@ class Login extends React.Component {
                 </div>
 
                 <div className="form-group  col-md-4 login__input">
-                    <label className="form-lable">
+                    <label className="form-label">
                         Password
                     </label>
                     <input className="form-control" type="password" name="password" value={this.state.password} onChange={this.handleChange} required/>
                 </div>
 
-                <div className="col-md-4">
-                    <input className="btn  btn-primary" type="submit" value="Login"/>
+                <div className="col-md-4  login__button_wrapper">
+                    <div className="">
+                        <input className="btn  btn-primary" type="submit" value="Login"/>
+                    </div>
+                    <div className="">
+                        <Link to="/register" className="btn  btn-primary">Go to Register</Link>
+                    </div>
                 </div>
             </form>
             // </div>

@@ -1,0 +1,6 @@
+.main__header {
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    margin-top: 50px;
+}

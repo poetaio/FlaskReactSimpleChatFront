@@ -1,0 +1,19 @@
+.profile {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile__info {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.profile__info_item {
+    margin-top: 20px;
+}
+
+.profile__info_item_header {
+    margin-bottom: 5px;
+}

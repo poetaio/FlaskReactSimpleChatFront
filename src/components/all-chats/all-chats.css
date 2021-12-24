@@ -1,3 +1,9 @@
+.all-chats {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 .all-chats__list {
     align-self: flex-start;
     list-style: none;

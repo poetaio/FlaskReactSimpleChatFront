@@ -23,6 +23,7 @@ function NavBar({ activeHeader }) {
     const navbarHeaders = [
         makeNavbarHeader("Home", "/", activeHeader === "Home"),
         makeNavbarHeader("Chats", "/chats", activeHeader === "Chats"),
+        makeNavbarHeader("Profile", "/profile", activeHeader === "Profile"),
         // makeNavbarHeader("Home", "/", )
     ];
 
