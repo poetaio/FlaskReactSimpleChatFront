@@ -1,6 +1,7 @@
 import './App.css';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import { AllChatsPage, ChatPage, HomePage, LoginPage, ProfilePage, RegisterPage } from '../pages';
+import { AllChatsPage, HomePage, LoginPage, ProfilePage, RegisterPage } from '../pages';
+// import {ChatPage} from '../pages';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
             <Route exact path="/register" element={<RegisterPage/>}/>
             <Route exact path="/chats" element={<AllChatsPage/>}/>
             <Route exact path="/profile" element={<ProfilePage/>}/>
-            <Route path="/chat" element={<ChatPage/>}/>
+            {/* <Route path="/chat" element={<ChatPage/>}/> */}
         </Routes>
     </Router>
   );
