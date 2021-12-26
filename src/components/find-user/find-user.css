@@ -1,0 +1,13 @@
+.find_user {
+    display: flex;
+    flex-direction: column;
+}
+
+.find_user__select {
+    display: flex;
+    position: absolute;
+}
+
+.find_user__select_option {
+    display: flex;
+}

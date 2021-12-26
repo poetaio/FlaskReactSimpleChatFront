@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import "./chat.css"
 // import { useChat } from "./useChat";
 import io from "socket.io-client"
+import Loader from "react-loader-spinner";
 
 const Chat = () => {
     const {search} = useLocation();
@@ -57,7 +58,12 @@ const Chat = () => {
         <ul className="chat_history__list">
             {(messages === null) ?
             (
-                <p>Loading...</p>
+                <Loader
+                    type="Puff"
+                    color="#00BFFF"
+                    height={100}
+                    width={100}
+                    timeout={3000}/>
             ) : (
                 (messages.map((user_message, i) => {
                     let className = user_message[0] === username ? "chat_history__message  chat_history__left" : "chat_history__message  chat_history__right";
