@@ -2,15 +2,21 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    height: 90%;
+    height: 85%;
     bottom: 0;
-    max-height: 90%;
+    max-height: 85%;
+    margin-top: 50px;
+}
+
+.all-chats__header {
+    margin-top: 0;
+    max-height: 15%;
 }
 
 .all-chats__chats_wrapper {
     display: flex;
-    height: 85%;
-    max-height: 85%;
+    height: 90%;
+    max-height: 90%;
     bottom: 0;
 }
 

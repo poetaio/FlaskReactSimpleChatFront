@@ -33,7 +33,7 @@ const AllChats = () => {
 
     return (
         <div className="all-chats">
-            <h3 className="main__header">All Chats</h3>
+            <h3 className="main__header  all-chats__header">All Chats</h3>
             <div className="all-chats__chats_wrapper">
                 <div className="all-chats__chats-menu">
                 <FindUser userSelected={userSelected}/>

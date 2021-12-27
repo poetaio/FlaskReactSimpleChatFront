@@ -1,13 +1,85 @@
 .find_user {
+    width: 250px;
+}
+
+.find_user__input_wrapper {
+    /* height: 50px; */
+    display: flex;
+    align-items: center;
+    border-bottom: solid #e4e4e4 1px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.find_user__input {
+
+  /* background-image: url('../../assets/images/search_icon.png');
+  background-repeat: no-repeat;
+  background-position: right center; */
+  border: none;
+  margin: 0;
+  padding-left: 2px;
+  /* padding-bottom: 1px; */
+}
+
+.find_user__input_image {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.find_user__input:focus {
+    border: none;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+.find_user__options_list {
+    position: absolute;
+    z-index: 1001;
+    background-color: #e1edff;
+    border-radius: 5px;
+    width: 230px;
+    margin-left: 10px;
+    margin-top: -13px;
+}
+
+.find_user__option {
+    cursor: pointer;
+    margin-bottom: 3px;
     display: flex;
     flex-direction: column;
+    padding-left: 10px;
 }
 
-.find_user__select {
-    display: flex;
-    position: absolute;
+.find_user__option:hover {
+    background-color: #8bb9ff;
+    /* b6d3ff */
+    color: white;
 }
 
-.find_user__select_option {
-    display: flex;
+.find_user__option--not_found {
+    margin: 0;
+}
+
+.find_user__option--not_found:hover {
+    background-color: #e1edff;
+    cursor: default;
+    color: black;
+}
+
+.find_user__option_name {
+    margin-bottom: 0;
+}
+
+.find_user__option_value {
+    margin-top: -3px;
+    font-size: 13px;
+    padding-left: 5px;
+}
+
+.find_user__match {
+    color: rgb(255, 145, 0);
 }

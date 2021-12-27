@@ -47,16 +47,20 @@
 }
 
 .chat_history__message {
-    border: solid rgb(0, 124, 124) 2px;
+    border: solid rgb(0, 168, 168) 2px;
     margin-top: 2px;
     padding: 4px;
     border-radius: 4px;
-    background-color: lightblue;
+    word-wrap: break-word;
+    word-break: break-all;
+    max-width: 80%;
+    background-color: rgb(217, 255, 253);
 }
 
 .chat_history__right {
     display: flex;
     align-self: flex-end;
+    background-color: rgb(217, 255, 253);
 }
 
 .chat_history__input {
