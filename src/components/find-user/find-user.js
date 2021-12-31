@@ -36,11 +36,7 @@ const FindUser = ({userSelected}) => {
         let index = option.value.indexOf(include);
         let length = include.length;
         for (let i = 0; i < option.value.length; ++i) {
-            if (i >= index && i < index + length) {
-                option.username[i].match = true;
-            }
-            else 
-                option.username[i].match = false;
+            option.username[i].match = i >= index && i < index + length;
         }
     }
 
