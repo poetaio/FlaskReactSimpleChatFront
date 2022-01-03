@@ -72,8 +72,8 @@ const Chat = (props) => {
                             timeout={3000}/>
                     ) : (
                         (messages.map((user_message, i) => {
-                            let className = user_message[0] === username ? "chat_history__message  chat_history__left" : "chat_history__message  chat_history__right";
-                            return (<li ref={i < messages.length - 1 ? messagesEnd : null} key={i} className={className}>{user_message[1]}</li>)
+                            let className = user_message.user_from === username ? "chat_history__message  chat_history__left" : "chat_history__message  chat_history__right";
+                            return (<li ref={i < messages.length - 1 ? messagesEnd : null} key={i} className={className}>{user_message.message}</li>)
                         }))
                     )
                 }

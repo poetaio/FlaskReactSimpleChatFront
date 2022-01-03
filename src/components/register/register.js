@@ -32,10 +32,20 @@ const Register = () => {
         if (!validate()) {
             return
         }
-        let url = `/api/register?username=${username}&password=${password}&firstName=${firstName}&lastName=${lastName}`;
+        let url = "/api/register";
+        let user = {
+            username: username,
+            firstName: firstName,
+            lastName: lastName,
+            password: password
+        };
 
         fetch(url, {
-            method: "POST"
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(user)
         }).then((response) => {
             if (response.status !== 200) {
                 setErrors(["User already exists"]);
