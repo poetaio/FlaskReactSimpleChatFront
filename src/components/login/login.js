@@ -68,10 +68,19 @@ class Login extends React.Component {
             return;
         }
 
-        let url = `/api/login?username=${this.state.username}&password=${this.state.password}`;
+        let url = '/api/login';
+
+        let loginData = {
+            username: this.state.username,
+            password: this.state.password
+        }
 
         fetch(url, {
-            method: "POST"
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(loginData)
         }).then((response) => {
             if (response.status !== 200) {
                 this.setState({

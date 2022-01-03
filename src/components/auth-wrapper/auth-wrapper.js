@@ -23,7 +23,7 @@ function AuthWrapper(props) {
                     width={100}
                     timeout={3000}/> :
                 (
-                    verification === 200 ? 
+                    verification === 204 ? 
                         (props.children) :
                         (<Navigate to="/login"/>)
                     )
